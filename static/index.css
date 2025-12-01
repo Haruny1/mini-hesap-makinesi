@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1f2933, #111827);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e5e7eb;
+}
+
+/* Kutu ortalansın ve çok geniş olmasın */
+.calculator {
+    background: #111827;
+    padding: 24px 28px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    width: 100%;
+    max-width: 480px;
+    /* eskiden 320 idi, biraz büyüttüm istersen geri çekebilirsin */
+    border: 1px solid rgba(156, 163, 175, 0.2);
+}
+
+.calculator h2 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #f9fafb;
+}
+
+.row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+input[type="number"],
+select {
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #4b5563;
+    background: #020617;
+    color: #e5e7eb;
+    outline: none;
+    font-size: 14px;
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.6);
+}
+
+#islem {
+    max-width: 70px;
+    text-align: center;
+}
+
+#hesapla {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #f9fafb;
+    transition: transform 0.1s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+#hesapla:hover {
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.45);
+    transform: translateY(-1px);
+}
+
+#hesapla:active {
+    transform: translateY(0);
+    box-shadow: none;
+    opacity: 0.9;
+}
+
+.sonuc-kutusu {
+    margin-top: 18px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: #020617;
+    border: 1px dashed #4b5563;
+    font-size: 14px;
+}
+
+.sonuc-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #9ca3af;
+    margin-bottom: 4px;
+}
+
+#sonuc {
+    font-size: 18px;
+    font-weight: 600;
+    color: #facc15;
+    word-break: break-all;
+}

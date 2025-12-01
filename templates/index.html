@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini Hesap Makinesi</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Flask ile kullanıyorsan -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <!-- Düz HTML test ediyorsan: <link rel="stylesheet" href="index.css"> -->
+</head>
+<body>
+
+    <div class="calculator">
+        <h2>Mini Hesap Makinesi</h2>
+
+        <div class="row">
+            <input type="number" id="sayi1" placeholder="1. sayı">
+            <select id="islem">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="number" id="sayi2" placeholder="2. sayı">
+        </div>
+
+        <button id="hesapla">HESAPLA</button>
+
+        <div class="sonuc-kutusu">
+            <div class="sonuc-label">Sonuç:</div>
+            <span id="sonuc">—</span>
+        </div>
+    </div>
+
+    <script>
+    $("#hesapla").click(function(){
+        let sayi1 = $("#sayi1").val();
+        let sayi2 = $("#sayi2").val();
+        let islem = $("#islem").val();
+
+        $.post("/hesapla", {
+            sayi1: sayi1,
+            sayi2: sayi2,
+            islem: islem
+        }, function(data){
+            $("#sonuc").text(data.sonuc);
+        });
+    });
+    </script>
+
+</body>
+</html>
